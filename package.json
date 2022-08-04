@@ -1,0 +1,30 @@
+{
+  "name": "tiny-compress-images",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tiny": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors-console": "^1.0.3",
+    "figlet": "^1.5.2",
+    "ora": "^6.1.2",
+    "pkg-types": "^0.3.3",
+    "tinify": "^1.6.1",
+    "tiny-compress-images": "^1.0.0"
+  },
+  "tinifyCompress": {
+    "key": "HR5gGtwfVvNYyQtwS4HL1VLww3dnndvH",
+    "filesExclude": "",
+    "filePath": ""
+  },
+  "bin": {
+    "compress": "index.js"
+  }
+}
