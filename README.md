@@ -1,12 +1,15 @@
 ## 📖 Introduction
 
-##### 1. Based on tinypng
-##### 2. Inspired by github@sudongyuer/easy-tinypng-cli
+```bash
+1. Based on tinypng
+2. Inspired by github@sudongyuer/easy-tinypng-cli
+```
 
 
 ## 📦 Installation
 
-```shell
+
+```bash
 pnpm add tiny-compress-images
 
 yarn add tiny-compress-images
@@ -17,7 +20,7 @@ npm install tiny-compress-images
 
 ## 🦄 Usage
 
-```shell
+```json
   package.json:
   "tinifyCompress": {
     "key": "", //The key requested from tinypng.com
@@ -26,7 +29,7 @@ npm install tiny-compress-images
   },
 ```
 
-```shell
+```bash
 npx compress
 ```
 
