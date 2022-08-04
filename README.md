@@ -1,26 +1,35 @@
-##### 1. 基于tinypng
-##### 2. 灵感来自github@sudongyuer/easy-tinypng-cli
+## 📖 Introduction
+
+##### 1. Based on tinypng
+##### 2. Inspired by github@sudongyuer/easy-tinypng-cli
 
 
-install
+## 📦 Installation
+
 ```shell
 pnpm add tiny-compress-images
+
+yarn add tiny-compress-images
+
+npm install tiny-compress-images
 ```
 
-package.json
+
+## 🦄 Usage
+
 ```shell
+  package.json:
   "tinifyCompress": {
-    "key": "HR5gGtwfVvNYyQtwS4HL1VLww3dnndvH", //从tinypng申请到的key
-    "filesExclude": "", //哪些文件被忽略，默认["dist", "build", "node_modules", "config"]
-    "filePath": ""      //默认images ，项目中一般改成 'src'
+    "key": "", //The key requested from tinypng.com
+    "filesExclude": "", //default = ["dist", "build", "node_modules", "config"]
+    "filePath": ""      //default = 'images' , Perhaps 'src' would be a better choice
   },
 ```
 
-usage
 ```shell
 npx compress
 ```
 
-##### 源码非常简单，index.js就是全部逻辑，可以自行更改
+#### The source code is very simple and can be modified by yourself
 
 
