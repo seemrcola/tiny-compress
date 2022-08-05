@@ -12,7 +12,7 @@ import defaultConfig from "./defaultConfig.js";
 /*文件列表*/
 const filesList = [];
 /*可处理文件类型*/
-const imgsInclude = [".png", ".jpg"];
+const imgsInclude = [".png", ".jpg", "jpeg"];
 /*cli配置*/
 let key, filesExclude, filePath;
 /*tinifyError 策略模式*/
