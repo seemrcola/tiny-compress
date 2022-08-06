@@ -25,7 +25,7 @@ npm install tiny-compress-images
   "tinifyCompress": {
     "key": "", //The key requested from tinypng.com
     "filesExclude": "", //default = ["dist", "build", "node_modules", "config"]
-    "filePath": ""      //default = 'images' , Perhaps 'src' would be a better choice
+    "filePath": ""      //default = 'src'
   },
 ```
 
