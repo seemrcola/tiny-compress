@@ -1,5 +1,6 @@
 import { cwd } from "node:process";
 import path from "path";
+import fs from 'fs';
 import { readPackageJSON } from "pkg-types";
 import tinify from "tinify";
 import figlet from "figlet";
@@ -7,13 +8,14 @@ import fg from 'fast-glob'
 import ora from 'ora'
 import colors from 'colors-console'
 import defaultConfig from "./config.js";
+import { outputFile } from './output.js'
 
 /*文件列表*/
 let filesList = [];
 /*可处理文件类型*/
 const imgsInclude = ["png", "jpg", "jpeg"];
 /*cli配置*/
-let key, filePath;
+let key, filePath, output2md;
 /*tinifyError 策略模式*/
 let errorList = [tinify.AccountError, tinify.ClientError, tinify.ServerError, tinify.ConnectionError]
 let tinifyError = {
@@ -31,6 +33,7 @@ async function tinifyCompressPre() {
   /*tinifyCompress配置读取*/
   key = pkg?.tinifyCompress?.key;
   filePath = pkg?.tinifyCompress?.filePath || defaultConfig.filePath;
+  output2md = pkg?.tinifyCompress?.output2md || defaultConfig.output2md;
   if (!key) return console.error("api key is required => https://tinypng.com/developers");
   tinify.key = key; //申请一个key tinify库需要用到
 
@@ -45,6 +48,8 @@ async function tinifyCompress() {
     `${filePath}/**/*.{${imgsInclude.join()}}`,
     { absolute: true, stats: true }
   )
+
+  console.log(filesList)
   /*打印花式字体，运行压缩函数*/
   figlet('Tinify Compress', (err, data) => {
     if (err) return console.log('figlet-error:Something went wrong...')
@@ -57,9 +62,9 @@ async function tinifyCompress() {
 async function tinifyRun() {
   for (let item of filesList) {
     const spinner = ora({ text: `Loading ${item.path}`, color: 'yellow' }).start()
-    const output = path.resolve(item.path);
     const source = tinify.fromFile(item.path);
     try {
+      const output = item.path;
       await source.toFile(output)
       spinner.succeed()
       console.log(colors(['white', 'blueBG'], `compress success => ${output}`))
@@ -73,6 +78,13 @@ async function tinifyRun() {
     }
   }
   console.log(colors(['white', 'greenBG'], `\n---------------------->>> all done <<<---------------------`))
+  /*压缩完成，收个尾*/
+  compressFinish()
+}
+
+/*压缩完成之后可能要做什么*/
+function compressFinish() {
+  output2md && outputFile(filesList)
 }
 
 tinifyCompressPre();

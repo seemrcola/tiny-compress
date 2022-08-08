@@ -24,7 +24,8 @@ npm install tiny-compress-images
   package.json:
   "tinifyCompress": {
     "key": "", //The key requested from tinypng.com
-    "filePath": ""      //default = 'src'
+    "filePath": "",      //default = 'src'
+    "output2md": false | true  //Whether to output a `result.md` to show the compression result
   },
 ```
 
