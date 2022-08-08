@@ -1,6 +1,6 @@
 {
   "name": "tiny-compress-images",
-  "version": "1.2.4",
+  "version": "1.3.0",
   "description": "base on tinify",
   "main": "index.js",
   "type": "module",
@@ -12,17 +12,19 @@
   "license": "ISC",
   "dependencies": {
     "colors-console": "^1.0.3",
+    "fast-glob": "^3.2.11",
     "figlet": "^1.5.2",
     "ora": "^6.1.2",
     "pkg-types": "^0.3.3",
-    "tinify": "^1.6.1"
+    "tinify": "^1.6.1",
+    "tiny-compress-images": "1.3.0"
   },
-  "repository":{
-    "url":"https://github.com/seemrcola/tiny-compress",
-    "type":"git"
+  "repository": {
+    "url": "https://github.com/seemrcola/tiny-compress",
+    "type": "git"
   },
   "tinifyCompress": {
-    "key": "HR5gGtwfVvNYyQtwS4HL1VLww3dnndvH",
+    "key": "dkVJXn2lnxcK9CQ956xdQjdXg7C0PTmM",
     "filesExclude": "",
     "filePath": "src"
   },
