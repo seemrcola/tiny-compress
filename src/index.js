@@ -48,8 +48,6 @@ async function tinifyCompress() {
     `${filePath}/**/*.{${imgsInclude.join()}}`,
     { absolute: true, stats: true }
   )
-
-  console.log(filesList)
   /*打印花式字体，运行压缩函数*/
   figlet('Tinify Compress', (err, data) => {
     if (err) return console.log('figlet-error:Something went wrong...')
@@ -84,7 +82,9 @@ async function tinifyRun() {
 
 /*压缩完成之后可能要做什么*/
 function compressFinish() {
+  /*是否输出result.md*/
   output2md && outputFile(filesList)
+  /*是否下次压缩的时候跳过已经压缩过的文件*/
 }
 
 tinifyCompressPre();
