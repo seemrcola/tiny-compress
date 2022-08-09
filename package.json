@@ -1,6 +1,6 @@
 {
   "name": "tiny-compress-images",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "base on tinify",
   "main": "index.js",
   "type": "module",
@@ -23,7 +23,7 @@
     "type": "git"
   },
   "tinifyCompress": {
-    "key": "",
+    "key": "HR5gGtwfVvNYyQtwS4HL1VLww3dnndvH",
     "filesExclude": "",
     "filePath": "src",
     "output2md": false
