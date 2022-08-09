@@ -13,7 +13,6 @@ function outputFile(list = []) {
     if (!length) return
 
     let packagePath = cwd()
-    console.log(packagePath)
 
     for (let i = 0; i < length; i++) {
         /*获取需要展示的数据*/
@@ -30,9 +29,7 @@ function outputFile(list = []) {
 
 /*写文件*/
 function writeFile(fileName, data) {
-    fs.writeFile(fileName, data, 'utf-8', () => {
-        void 0
-    });
+    fs.writeFile(fileName, data, 'utf-8', () =>  void 0 );
 }
 
 export {

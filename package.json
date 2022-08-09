@@ -16,7 +16,8 @@
     "figlet": "^1.5.2",
     "ora": "^6.1.2",
     "pkg-types": "^0.3.3",
-    "tinify": "^1.6.1"
+    "tinify": "^1.6.1",
+    "tiny-compress-images": "1.4.0"
   },
   "repository": {
     "url": "https://github.com/seemrcola/tiny-compress",
