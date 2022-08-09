@@ -1,11 +1,12 @@
 {
   "name": "tiny-compress-images",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "base on tinify",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tiny": "node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,19 +16,19 @@
     "fast-glob": "^3.2.11",
     "figlet": "^1.5.2",
     "ora": "^6.1.2",
-    "pkg-types": "^0.3.3",
     "tinify": "^1.6.1",
-    "tiny-compress-images": "1.4.0"
+    "unconfig": "^0.3.5"
   },
   "repository": {
     "url": "https://github.com/seemrcola/tiny-compress",
     "type": "git"
   },
   "tinifyCompress": {
-    "key": "HR5gGtwfVvNYyQtwS4HL1VLww3dnndvH",
+    "key": "Kp18lq72QcVR8blR8PDnLL1qwqLvs5cq",
     "filesExclude": "",
     "filePath": "src",
-    "output2md": false
+    "output2md": true,
+    "cache": true
   },
   "bin": {
     "compress": "bin/compress.js"

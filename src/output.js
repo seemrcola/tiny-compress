@@ -3,6 +3,8 @@ import path from 'path'
 import { cwd } from 'node:process'
 import { calcSize } from './utils.js';
 
+import {RESULT_MD} from './index.js'
+
 let str = `# 项目原始图片对比\n
 ## 图片压缩信息\n
 | 文件名 | 文件体积 | 压缩后体积 | 压缩比 | 文件路径 |\n| -- | -- | -- | -- | -- |\n`;
@@ -24,7 +26,7 @@ function outputFile(list = []) {
         const desc = `| ${name} | ${calcSize(stats.size)} | ${calcSize(compressionSize)} | ${compressionRatio} | ${filePath} |\n`;
         str += desc;
     }
-    return writeFile("result.md", str)
+    return writeFile(RESULT_MD, str)
 }
 
 /*写文件*/
