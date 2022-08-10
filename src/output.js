@@ -10,7 +10,7 @@ let str = `# 项目原始图片对比\n
 | 文件名 | 文件体积 | 压缩后体积 | 压缩比 | 文件路径 |\n| -- | -- | -- | -- | -- |\n`;
 
 /*文件输出函数*/
-function outputFile(list = []) {
+export function outputFile(list = []) {
     let length = list.length
     if (!length) return
 
@@ -32,8 +32,4 @@ function outputFile(list = []) {
 /*写文件*/
 function writeFile(fileName, data) {
     fs.writeFile(fileName, data, 'utf-8', () =>  void 0 );
-}
-
-export {
-    outputFile
 }
