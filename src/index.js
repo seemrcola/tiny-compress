@@ -25,8 +25,8 @@ let compressedMap = {}
 /*cli配置*/
 let key, filePath, output2md, cache;
 
-/*压缩前准备*/
-async function tinifyCompressPre() {
+/*压缩前准备-- for -p*/
+export async function tinifyCompressPre() {
   /*配置读取*/
   const pkg = (await loadConfig({ sources: [{ files: PACKAGE_JSON_PATH }] })).config;
   if (!pkg) return console.error("package.json not found in current directory");
@@ -45,7 +45,14 @@ async function tinifyCompressPre() {
 }
 
 /*读取文件并调用压缩函数*/
-async function tinifyCompress() {
+export async function tinifyCompress(options) {
+  /* for -t*/
+  if(options) {
+    tinify.key = options.apikey
+    filePath = options.filePath
+    output2md = options.md
+  }
+
   filesList = await fg(
     `${filePath}/**/*.{${imgsInclude.join()}}`,
     { absolute: true, stats: true }
@@ -113,5 +120,3 @@ function tinifyError(error) {
 
   process.exit(1)
 }
-
-tinifyCompressPre();
