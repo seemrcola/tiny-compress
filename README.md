@@ -30,6 +30,17 @@ npm install tiny-compress-images
   },
 ```
 
+```shell
+compress --help
+
+Usage: compress [options]
+
+Options:
+  -p, --project   Work for a project with package.json
+  -t, --terminal  Work in any folder without package.json
+  -h, --help      display help for command
+```
+
 ```bash
 npx compress
 ```

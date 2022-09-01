@@ -1,17 +1,17 @@
 #! /usr/bin/env node
 import { program } from 'commander';
-import process from 'node:process'
 import inquirer from 'inquirer'
 import { tinifyCompressPre, tinifyCompress } from '../src/index.js'
 
 program
-    .option('-p, --project', 'Work for a project with package.json file')
+    .option('-p, --project', 'Work for a project with package.json')
     .option('-t, --terminal', 'Work in any folder without package.json')
 
 program.parse();
 
 const options = program.opts();
 /*项目下直接走正常流程*/
+if(Object.values(options).length == 0) tinifyCompressPre()
 if (options.project) tinifyCompressPre()
 /*非项目下进行问答*/
 if (options.terminal) {
