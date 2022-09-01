@@ -1,5 +1,6 @@
 /*tinifyError函数*/
 import tinify from "tinify";
+import colors from "colors-console";
 
 /*原始错误类型*/
 let errorList = [
