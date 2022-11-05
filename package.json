@@ -34,5 +34,8 @@
   },
   "bin": {
     "compress": "bin/compress.js"
+  },
+  "devDependencies": {
+    "ini": "^3.0.1"
   }
 }

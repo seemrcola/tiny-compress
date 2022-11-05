@@ -5,6 +5,7 @@ specifiers:
   commander: ^9.4.0
   fast-glob: ^3.2.11
   figlet: ^1.5.2
+  ini: ^3.0.1
   inquirer: ^9.1.0
   ora: ^6.1.2
   tinify: ^1.6.1
@@ -19,6 +20,9 @@ dependencies:
   ora: 6.1.2
   tinify: 1.6.1
   unconfig: 0.3.5
+
+devDependencies:
+  ini: 3.0.1
 
 packages:
 
@@ -220,6 +224,11 @@ packages:
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
     dev: false
+
+  /ini/3.0.1:
+    resolution: {integrity: sha512-it4HyVAUTKBc6m8e1iXWvXSTdndF7HbdN713+kvLrymxTaU4AUBWrJ4vEooP+V7fexnVD3LKcBshjGGPefSMUQ==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    dev: true
 
   /inquirer/9.1.0:
     resolution: {integrity: sha512-eukdjrBljg9t55ZnvJjvGi1OyYEzVBFsO/8o5d2MV3mc28u3x4X2kS4eJ/+9U10KiREfPkEBSeCrU/S2G/uRtw==}
