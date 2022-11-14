@@ -10,11 +10,11 @@
 
 
 ```bash
-pnpm add tiny-compress-images
+pnpm add tiny-compress-images -g
 
-yarn add tiny-compress-images
+yarn add tiny-compress-images -g
 
-npm install tiny-compress-images
+npm install tiny-compress-images -g
 ```
 
 
@@ -48,7 +48,7 @@ set <apikey> <alias>  set apikey
 ```
 
 ```bash
-npx compress do
+npx compress do  ||  compress do
 ```
 
 #### The source code is very simple and can be modified by yourself
