@@ -33,16 +33,22 @@ npm install tiny-compress-images
 ```shell
 compress --help
 
-Usage: compress [options]
+Usage: compress [options] [command]
 
 Options:
-  -p, --project   Work for a project with package.json
-  -t, --terminal  Work in any folder without package.json
-  -h, --help      display help for command
+-p, --project         Work for a project with package.json
+-t, --terminal        Work in any folder without package.json
+-h, --help            display help for command
+
+Commands:
+set <apikey> <alias>  set apikey
+  list                  apikey list
+  do                    compress
+  help [command]        display help for command
 ```
 
 ```bash
-npx compress
+npx compress do
 ```
 
 #### The source code is very simple and can be modified by yourself

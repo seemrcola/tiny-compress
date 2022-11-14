@@ -30,7 +30,7 @@ program
 program
     .command('do')
     .description('compress')
-    .action( () => {
+    .action(() => {
         compress(options)
     })
 
