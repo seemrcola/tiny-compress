@@ -31,3 +31,17 @@ export async function getApikeys() {
     const customRegistries = await readFile(COMPRESSRC);
     return Object.assign({}, customRegistries);
 }
+
+export function divide(arr ,arrlen) {
+    let result = [], container = []
+    for (let i = 0,len = arr.length; i< len; i++) {
+        if(container.length + 1 === arrlen || i+1 === len) {
+            container.push(arr[i])
+            result.push([...container])
+            container = []
+            continue
+        }
+        container.push(arr[i])
+    }
+    return result
+}

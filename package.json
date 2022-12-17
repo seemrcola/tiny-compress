@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tiny": "node src/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["compress", "images", "tinify"],
+  "author": "seemrcola",
   "license": "ISC",
   "dependencies": {
     "colors-console": "^1.0.3",
@@ -29,8 +29,10 @@
     "key": "Kp18lq72QcVR8blR8PDnLL1qwqLvs5cq",
     "filesExclude": "",
     "filePath": "src",
-    "output2md": true,
-    "cache": true
+    "output2md": false,
+    "cache": true,
+    "sync": true,
+    "syncCount": 20
   },
   "bin": {
     "compress": "bin/compress.js"

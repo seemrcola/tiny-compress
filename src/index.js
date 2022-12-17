@@ -1,17 +1,14 @@
-import { cwd } from "node:process";
-import path from "path";
-
 import tinify from "tinify";
 import figlet from "figlet";
 import fg from "fast-glob";
-import ora from "ora";
 import colors from "colors-console";
 import { loadConfig } from "unconfig";
+
+import { compressAsync, syncCompress } from "./compress.js";
 
 import defaultConfig from "./config.js";
 import { outputFile } from "./output.js";
 import { cache as cacheFile } from "./cache.js";
-import { tinifyError } from "./error.js";
 
 export const CACHE_MAP_PATH = "tiny.cache.json";
 export const PACKAGE_JSON_PATH = "package.json";
@@ -24,7 +21,7 @@ const imgsInclude = ["png", "jpg", "jpeg"];
 /*已压缩map*/
 let compressedMap = {};
 /*cli配置*/
-let key, filePath, output2md, cache;
+let key, filePath, output2md, cache, sync, syncCount;
 
 /*压缩前准备-- for -p*/
 export async function tinifyCompressPre() {
@@ -48,6 +45,8 @@ export async function tinifyCompressPre() {
   cache = pkg?.tinifyCompress?.cache || defaultConfig.cache;
   filePath = pkg?.tinifyCompress?.filePath || defaultConfig.filePath;
   output2md = pkg?.tinifyCompress?.output2md || defaultConfig.output2md;
+  sync = pkg?.tinifyCompress?.sync || defaultConfig.sync;
+  syncCount = pkg?.tinifyCompress?.syncCount || defaultConfig.syncCount;
 
   if (!key)
     return console.error(
@@ -81,35 +80,10 @@ export async function tinifyCompress(options) {
 
 /*tinify文件压缩*/
 async function tinifyRun() {
-  for (let item of filesList) {
-    if (cache && isCompressed(item.path)) {
-      console.log(colors(["white", "yellowBG"], `compressed => ${item.path}`));
-      continue;
-    }
-
-    const spinner = ora({
-      text: `Loading ${item.path}`,
-      color: "yellow",
-    }).start();
-    const source = tinify.fromFile(item.path);
-
-    try {
-      const output = item.path;
-      await source.toFile(output);
-      spinner.succeed();
-      console.log(colors(["white", "blueBG"], `compress success => ${output}`));
-    } catch (error) {
-      spinner.fail();
-      tinifyError(error);
-    }
-  }
-  console.log(
-    colors(
-      ["white", "greenBG"],
-      `\n---------------------->>> all done <<<---------------------`
-    )
-  );
-
+  if(syncCount > 10) syncCount = 10
+  if(sync) await syncCompress(filesList, cache, compressedMap, syncCount)
+  else await compress(filesList, cache, compressedMap)
+  console.log(`\n>>>>>>>>> all done <<<<<<<<<`)
   compressFinish();
 }
 
@@ -119,9 +93,5 @@ function compressFinish() {
   cache && cacheFile(filesList);
 }
 
-/*判断是否压缩过*/
-function isCompressed(path) {
-  return Boolean(compressedMap[path]);
-}
 
 

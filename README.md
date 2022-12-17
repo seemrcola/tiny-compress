@@ -26,7 +26,9 @@ npm install tiny-compress-images -g
     "key": "", //The key requested from tinypng.com
     "filePath": "",      //default = 'src'
     "output2md": false,  //Whether to output a `tiny.result.md` to show the compression result
-    "cache": false       //Whether to output a `tiny.cache.json` to show the compression result
+    "cache": false,       //Whether to output a `tiny.cache.json` to show the compression result
+    "sync": false,      //sync compress
+    "syncCount": 5,     //when sync === true
   },
 ```
 
