@@ -1,10 +1,11 @@
 import fs from "fs";
 
 import { CACHE_MAP_PATH } from "./index.js";
+import { splitPath } from "../utils/index.js";
 
 export function cache(list = []) {
   let paths = list
-    .map((file) => file.path)
+    .map((file) => splitPath(file.path))
     .reduce((pre, cur) => {
       pre[cur] = true;
       return pre;

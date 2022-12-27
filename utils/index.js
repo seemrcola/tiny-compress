@@ -1,6 +1,13 @@
+import { cwd } from 'process'
 import fs from 'fs'
 import ini from 'ini'
 import { COMPRESSRC } from '../config/index.js'
+
+
+export function splitPath(path) {
+    const root = cwd()
+    return path.replace(root, '')
+}
 
 export async function writeFile(path, content) {
     return new Promise(resolve => {

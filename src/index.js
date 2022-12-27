@@ -4,7 +4,7 @@ import fg from "fast-glob";
 import colors from "colors-console";
 import { loadConfig } from "unconfig";
 
-import { compressAsync, syncCompress } from "./compress.js";
+import { compressSync, compressAsync } from "./compress.js";
 
 import defaultConfig from "./config.js";
 import { outputFile } from "./output.js";
@@ -81,8 +81,8 @@ export async function tinifyCompress(options) {
 /*tinify文件压缩*/
 async function tinifyRun() {
   if(syncCount > 10) syncCount = 10
-  if(sync) await syncCompress(filesList, cache, compressedMap, syncCount)
-  else await compress(filesList, cache, compressedMap)
+  if(sync) await compressSync(filesList, cache, compressedMap, syncCount)
+  else await compressAsync(filesList, cache, compressedMap)
   console.log(`\n>>>>>>>>> all done <<<<<<<<<`)
   compressFinish();
 }
