@@ -1,6 +1,6 @@
 {
   "name": "tiny-compress-images",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "base on tinify",
   "main": "index.js",
   "type": "module",
@@ -19,7 +19,8 @@
     "inquirer": "^9.1.0",
     "ora": "^6.1.2",
     "tinify": "^1.6.1",
-    "unconfig": "^0.3.5"
+    "unconfig": "^0.3.5",
+    "ini": "^3.0.1"
   },
   "repository": {
     "url": "https://github.com/seemrcola/tiny-compress",
@@ -36,8 +37,5 @@
   },
   "bin": {
     "compress": "bin/compress.js"
-  },
-  "devDependencies": {
-    "ini": "^3.0.1"
   }
 }
