@@ -1,6 +1,6 @@
 {
   "name": "tiny-compress-images",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "base on tinify",
   "main": "index.js",
   "type": "module",
