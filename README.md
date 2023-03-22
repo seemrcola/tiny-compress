@@ -19,12 +19,14 @@ npm install tiny-compress-images -g
 
 
 ## 🦄 Usage
+The images are compressed and replaced in place  
+If you need to backup images, you can set the `backupPath` property to save the backup images to the configured directory
 
 ```json
   package.json:
   "tinifyCompress": {
     "key": "", //The key requested from tinypng.com
-    "backupPath": "", //beta (The path to backup images) 
+    "backupPath": "", //beta (The path for backup images) 
     "filePath": "",      //default = 'src'
     "output2md": false,  //Whether to output a `tiny.result.md` to show the compression result
     "cache": false,       //Whether to output a `tiny.cache.json` to show the compression result
