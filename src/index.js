@@ -9,6 +9,7 @@ import { compressSync, compressAsync } from "./compress.js";
 import defaultConfig from "./config.js";
 import { outputFile } from "./output.js";
 import { cache as cacheFile } from "./cache.js";
+import { backup } from "./backups.js";
 
 export const CACHE_MAP_PATH = "tiny.cache.json";
 export const PACKAGE_JSON_PATH = "package.json";
@@ -21,7 +22,7 @@ const imgsInclude = ["png", "jpg", "jpeg"];
 /*已压缩map*/
 let compressedMap = {};
 /*cli配置*/
-let key, filePath, output2md, cache, sync, syncCount;
+let key, filePath, output2md, cache, sync, syncCount, backupPath;
 
 /*压缩前准备-- for -p*/
 export async function tinifyCompressPre() {
@@ -47,6 +48,7 @@ export async function tinifyCompressPre() {
   output2md = pkg?.tinifyCompress?.output2md || defaultConfig.output2md;
   sync = pkg?.tinifyCompress?.sync || defaultConfig.sync;
   syncCount = pkg?.tinifyCompress?.syncCount || defaultConfig.syncCount;
+  backupPath = pkg?.tinifyCompress?.backupPath
 
   if (!key)
     return console.error(
@@ -70,6 +72,9 @@ export async function tinifyCompress(options) {
     absolute: true,
     stats: true,
   });
+  if(backupPath){ // 如果有配置，那就备份到指定文件夹下
+    backup(filesList, backupPath)
+  }
 
   figlet("Tinify Compress", (err, data) => {
     if (err) return console.log("figlet-error:Something went wrong...");

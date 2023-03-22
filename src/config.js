@@ -1,4 +1,5 @@
 export default {
+  outputPath: '',
   filePath: 'src',
   output2md: false,
   cache: false,
