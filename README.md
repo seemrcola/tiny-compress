@@ -25,10 +25,10 @@ If you need to backup images, you can set the `backupPath` property to save the 
 ```json
   package.json:
   "tinifyCompress": {
-    "key": "",            /** The key requested from tinypng.com                                  **/
-    "backupPath": "",     /** beta (The path for backup images)                                   **/ 
-    "filePath": "",       /** default = 'src'                                                     **/
-    "output2md": false,   /** Whether to output a `tiny.result.md` to show the compression result **/
+    "key": "",            /** The key requested from tinypng.com                                    **/
+    "backupPath": "",     /** beta (The path for backup images)                                     **/
+    "filePath": "",       /** default = 'src'                                                       **/
+    "output2md": false,   /** Whether to output a `tiny.result.md` to show the compression result   **/
     "cache": false,       /** Whether to output a `tiny.cache.json` to show the compression result  **/
     "sync": false,        /** sync compress                                                         **/
     "syncCount": 5,       /** when sync === true                                                    **/
